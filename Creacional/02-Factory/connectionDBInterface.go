@@ -1,4 +1,4 @@
-package connectionInterface
+package _2_Factory
 
 import "time"
 
