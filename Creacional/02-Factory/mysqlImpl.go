@@ -1,4 +1,4 @@
-package connectionImpl
+package _2_Factory
 
 import (
 	"database/sql"

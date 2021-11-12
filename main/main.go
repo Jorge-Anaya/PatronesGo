@@ -2,18 +2,39 @@ package main
 
 import (
 	"fmt"
-	"github.com/Jorge-Anaya/PatronesGo/Creacionales/01-Singleton"
-	"github.com/Jorge-Anaya/PatronesGo/Creacionales/01-Singleton/client"
-	"github.com/Jorge-Anaya/PatronesGo/Creacionales/02-Factory"
-	"github.com/Jorge-Anaya/PatronesGo/Creacionales/03-Builder"
+	"github.com/Jorge-Anaya/PatronesGo/Creacional/01-Singleton"
+	"github.com/Jorge-Anaya/PatronesGo/Creacional/02-Factory"
+	"github.com/Jorge-Anaya/PatronesGo/Creacional/03-Builder"
+	"github.com/Jorge-Anaya/PatronesGo/Creacional/04-Prototype"
+	"github.com/Jorge-Anaya/PatronesGo/Estructural/01-Proxy"
+	"github.com/Jorge-Anaya/PatronesGo/Estructural/02-Adapter"
+	"github.com/Jorge-Anaya/PatronesGo/Estructural/03-Facade"
+	"github.com/Jorge-Anaya/PatronesGo/Estructural/04-Bridge"
+	"github.com/Jorge-Anaya/PatronesGo/Estructural/05-Composite"
+	"github.com/Jorge-Anaya/PatronesGo/Estructural/06-Decorator"
+	"github.com/Jorge-Anaya/PatronesGo/Comportamental/01-Observer"
 	"os"
 	"sync"
 )
 
 func main() {
+
+	//*** Creacional
 	//testSingleton()
 	//testFactory()
-	testBuilder()
+	//testBuilder()
+	//testPrototype()
+
+	//*** Estructural
+	//testProxy()
+	//testAdapter()
+	//testFacade()
+	//testBridge()
+	//testComposite()
+	//testDecorator()
+
+	//*** Comportamental
+	testObserver()
 }
 
 func testSingleton() {
@@ -22,11 +43,11 @@ func testSingleton() {
 	for i := 0; i < 100; i++ {
 		go func() {
 			defer waitGroup.Done()
-			client.IncrementAgeClient1()
+			_1_Singleton.IncrementAgeClient1()
 		}()
 		go func() {
 			defer waitGroup.Done()
-			client.IncrementAgeClient2()
+			_1_Singleton.IncrementAgeClient2()
 		}()
 	}
 	waitGroup.Wait()
@@ -77,4 +98,36 @@ func testBuilder() {
 		fmt.Printf("BuildMesage(): XML: no se esperaba error, se recibió: %v", err)
 	}
 	fmt.Printf(string(xmlMsg.Body))
+}
+
+func testPrototype() {
+	_4_Prototype.TestPrototype()
+}
+
+func testProxy() {
+	_1_Proxy.TestProxy()
+}
+
+func testAdapter() {
+	_2_Adapter.TestAdapter()
+}
+
+func testFacade() {
+	_3_Facade.TestFacade()
+}
+
+func testBridge()  {
+	_4_Bridge.TestBridge()
+}
+
+func testComposite()  {
+	_5_Composite.TestComposite()
+}
+
+func testDecorator()  {
+	_6_Decorator.TestDecorator()
+}
+
+func testObserver()  {
+	_1_Observer.TestObserver()
 }
